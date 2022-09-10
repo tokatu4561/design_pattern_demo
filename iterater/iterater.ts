@@ -1,9 +1,9 @@
-export interface Iterater {
+export interface Iterater<T> {
   // Iterater は 集約体 (Aggregate)に次の要素が存在するかしないかと、次の要素を返す
-  next(): any;
-  hasNext();
+  next(): T;
+  hasNext(): boolean;
 }
 
-export interface Aggregate {
-  createIterater();
+export interface Aggregate<T> {
+  createIterater(): Iterater<T>;
 }
